@@ -58,7 +58,7 @@ namespace TMS.Core.Helpers.EasyMapper
         private static TEntity GetInstanceBy<TEntity>(string entityQualifiedName)
         {
             var destinationInstance = Activator.CreateInstance<TEntity>();
-            if (destinationInstance.GetType() == typeof(object)) // Dikkat noktası : Class türetildiğinde objeye dönüşür. haliyle buraya her türlü girecektir.
+            if (destinationInstance.GetType() == typeof(object))
                 destinationInstance = (TEntity)Activator.CreateInstance(Type.GetType(entityQualifiedName));
             return destinationInstance;
         }
@@ -79,7 +79,6 @@ namespace TMS.Core.Helpers.EasyMapper
 
         private static TDestination ValuesUpdateMap<TDestination>(object source, TDestination destinationInstance, MapOptions options = null)
         {
-            //var newDestinationInstance = GetInstanceBy<TDestination>(destinationInstance.GetType().AssemblyQualifiedName);
             var newDestinationInstance = NewInstanceMap<TDestination>(destinationInstance, options);
             newDestinationInstance = (TDestination)MapEntityProperties(source, newDestinationInstance, isUpdateMap: true, options: options);
             return newDestinationInstance;
@@ -100,7 +99,7 @@ namespace TMS.Core.Helpers.EasyMapper
                 var value = GetPropertyValue(source, currentPropertyName);
                 if (value is null)
                     continue;
-                var destinationProperty = destionationEntity.GetType().GetProperty(currentPropertyName); // GetDestinationProperty(destionationEntity, currentPropertyName);
+                var destinationProperty = destionationEntity.GetType().GetProperty(currentPropertyName); 
                 if (destinationProperty == null)
                     continue;
                 #region For Update Method
@@ -162,38 +161,6 @@ namespace TMS.Core.Helpers.EasyMapper
             }
             return destinationInstance;
         }
-
-        #region V2 preinitialized....
-        //private static PropertyInfo GetDestinationProperty(object destionationEntity, string currentPropertyName)
-        //{
-        //    var destinationProperty = destionationEntity.GetType().GetProperty(currentPropertyName);
-        //    if (destinationProperty == null)
-        //        destinationProperty = destionationEntity.GetType().GetProperty(GetPluralName(currentPropertyName));
-        //    if (destinationProperty == null)
-        //        destinationProperty = destionationEntity.GetType().GetProperty(GetSingularName(currentPropertyName));
-        //    return destinationProperty;
-        //}
-
-        //private static string GetPluralName(string propertyName)
-        //{
-        //    if (propertyName.EndsWith("s"))
-        //        return propertyName + "es";
-        //    else if (propertyName.EndsWith("y"))
-        //        return propertyName.Substring(0, propertyName.Length - 1) + "ies";
-        //    else if (propertyName.EndsWith("x"))
-        //        return propertyName;
-        //    else return propertyName + "s";
-        //}
-
-        //private static string GetSingularName(string propertyName)
-        //{
-        //    if (propertyName.EndsWith("ies"))
-        //        return propertyName.Substring(0, propertyName.Length - 3) + "y";
-        //    else if (propertyName.EndsWith("x"))
-        //        return propertyName;
-        //    else return propertyName.TrimEnd('s');
-        //} 
-        #endregion
 
         private static object GetPropertyValue(object source, string propName)
         {
