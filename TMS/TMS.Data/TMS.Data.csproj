@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TMS.Models\TMS.Models.csproj" />
   </ItemGroup>
 

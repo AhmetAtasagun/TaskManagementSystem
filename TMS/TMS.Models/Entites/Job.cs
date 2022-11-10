@@ -12,6 +12,6 @@ public class Job : BaseEntity
     [DataType(DataType.Text)]
     public string JobContent { get; set; }
     public JobStatus Status { get; set; }
-    public DateTime StartDate { get; set; }
-    public DateTime FinishDate { get; set; }
+    public DateTime? StartDate { get; set; }
+    public DateTime? FinishDate { get; set; }
 }

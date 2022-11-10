@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using TMS.Api.Extensions;
 using TMS.Api.Middlewares;
+using TMS.Business.Managers;
 using TMS.Data.Context;
 using TMS.Models;
 
@@ -92,5 +93,10 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseMiddleware<ExceptionHandlerMiddleware>();
+app.Use((context, middleware) =>
+{
+    SeedDataManager.SeedJobs(context);
+    return middleware(context);
+});
 app.MapControllers();
 app.Run();

@@ -10,17 +10,47 @@ namespace TMS.Data
         where T : class, IEntity, new()
     {
         private readonly TMSDbContext _context;
-        public DbSet<T> Table { get; }
+        private DbSet<T> _table { get; }
 
         public Repository(TMSDbContext context)
         {
             _context = context;
-            Table = _context.Set<T>();
+            _table = _context.Set<T>();
         }
 
-        public T? Get(Expression<Func<T, bool>> expression) => Table.Where(expression).FirstOrDefault();
+        public T? Get(Expression<Func<T, bool>> expression) => _table.Where(expression).FirstOrDefault();
 
-        public List<T> GetList(Expression<Func<T, bool>> expression) => Table.Where(expression).ToList();
+        public IQueryable<T> GetQueryable(Expression<Func<T, bool>> expression = null, bool noTracking = false)
+        {
+            if (expression == null)
+            {
+                if (noTracking)
+                    return _table.AsNoTracking().AsQueryable();
+                else return _table.AsQueryable();
+            }
+            else
+            {
+                if (noTracking)
+                    return _table.AsNoTracking().Where(expression);
+                else return _table.Where(expression);
+            }
+        }
+
+        public List<T> GetList(Expression<Func<T, bool>> expression = null, bool noTracking = false)
+        {
+            if (expression == null)
+            {
+                if (noTracking)
+                    return _table.AsNoTracking().ToList();
+                else return _table.ToList();
+            }
+            else
+            {
+                if (noTracking)
+                    return _table.AsNoTracking().Where(expression).ToList();
+                else return _table.Where(expression).ToList();
+            }
+        }
 
         public T Add(T entity) => EntrySaveChanges(entity, EntityState.Added);
 
@@ -28,9 +58,9 @@ namespace TMS.Data
 
         public bool Delete(int id)
         {
-            var entity = Table.Find(id);
+            var entity = _table.Find(id);
             if (entity == null)
-                throw new NotFoundException($"{Table.EntityType.DisplayName()} not found");
+                throw new NotFoundException($"{_table.EntityType.DisplayName()} not found");
             return EntrySaveChanges(entity, EntityState.Deleted) != null;
         }
 
@@ -40,5 +70,6 @@ namespace TMS.Data
             _context.SaveChanges();
             return entity;
         }
+
     }
 }

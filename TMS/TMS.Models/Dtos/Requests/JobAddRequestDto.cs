@@ -6,7 +6,7 @@ namespace TMS.Models.Dtos.Requests
     {
         public string Title { get; set; }
         public string JobContent { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime FinishDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? FinishDate { get; set; }
     }
 }

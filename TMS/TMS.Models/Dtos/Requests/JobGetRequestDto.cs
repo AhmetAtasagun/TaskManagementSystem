@@ -6,5 +6,6 @@ namespace TMS.Models.Dtos.Requests
     public class JobGetRequestDto : IDto
     {
         public JobStatus Status { get; set; }
+        public Timeline Timeline { get; set; }
     }
 }

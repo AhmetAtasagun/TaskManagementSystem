@@ -17,10 +17,10 @@ namespace TMS.Api.Controllers.v1
             _jobService = jobService;
         }
 
-        [HttpPost("Get")]
-        public List<JobDto> Get(JobGetRequestDto jobGetRequest)
+        [HttpPost("GetJobs")]
+        public List<JobDto> GetJobs(JobGetRequestDto jobGetRequest)
         {
-            return _jobService.Get(jobGetRequest);
+            return _jobService.GetList(jobGetRequest);
         }
 
         [HttpPost("Add")]
