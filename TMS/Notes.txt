@@ -1,16 +1,12 @@
 
-Yazılım Geliştirici için
-Proje Adı: Görev Yöneticisi (Task Management System)
-Proje Konusu: Kullanıcının günlük, haftalık, aylık olarak yapacağı işleri rapor ettiği küçük bir uygulamadır. Uygulama içerisinde Swagger ve JWT ile Authentication olmalıdır.
+YazÄ±lÄ±m GeliÅŸtirici iÃ§in
+Proje AdÄ±: GÃ¶rev YÃ¶neticisi (Task Management System)
+Proje Konusu: KullanÄ±cÄ±nÄ±n gÃ¼nlÃ¼k, haftalÄ±k, aylÄ±k olarak yapacaÄŸÄ± iÅŸleri rapor ettiÄŸi kÃ¼Ã§Ã¼k bir uygulamadÄ±r. Uygulama iÃ§erisinde Swagger ve JWT ile Authentication olmalÄ±dÄ±r.
 
 Backend Developer:
-ASP.NET Core Web Api, MSSQL, MongoDb, frameworklerin sunduğu çözümler ve yardımcı kütüphanelerdir.
+ASP.NET Core Web Api, MSSQL, MongoDb, frameworklerin sunduÄŸu Ã§Ã¶zÃ¼mler ve yardÄ±mcÄ± kÃ¼tÃ¼phanelerdir.
 -------------------------------------
-İlk olarak senden beklenen; yapılacak işlerin tarih bazlı eklenmesi, silinmesi ve yapıldı şeklinde güncellenebilmesidir. 
-Ayrıca bunların günlük, haftalık ve aylık olarak listelenebilmesi de gerekmektedir. 
-Özetlemek gerekirse; rapor içinde ayrı bir endpoint olacaktır. İkinci soruna gelirsek; projenin Aspnet Core ile yapılması gerekmektedir. 
-Db olarak ise istediğini seçmekte özgürsün. Ek olarak, proje teslim tarihin bu bilgilendirmenin yapıldığı tarih baz alınarak başlayacaktır.
-
-
-
-Not : "TMS.Business > Nuget Package Manager > Installed" içerisindeki yüklü kütüphaneleri, dikkatinize arz ederim.
+Ä°lk olarak senden beklenen; yapÄ±lacak iÅŸlerin tarih bazlÄ± eklenmesi, silinmesi ve yapÄ±ldÄ± ÅŸeklinde gÃ¼ncellenebilmesidir. 
+AyrÄ±ca bunlarÄ±n gÃ¼nlÃ¼k, haftalÄ±k ve aylÄ±k olarak listelenebilmesi de gerekmektedir. 
+Ã–zetlemek gerekirse; rapor iÃ§inde ayrÄ± bir endpoint olacaktÄ±r. Ä°kinci soruna gelirsek; projenin Aspnet Core ile yapÄ±lmasÄ± gerekmektedir. 
+Db olarak ise istediÄŸini seÃ§mekte Ã¶zgÃ¼rsÃ¼n. Ek olarak, proje teslim tarihin bu bilgilendirmenin yapÄ±ldÄ±ÄŸÄ± tarih baz alÄ±narak baÅŸlayacaktÄ±r.
