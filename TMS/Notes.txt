@@ -1,0 +1,16 @@
+
+Yazýlým Geliþtirici için
+Proje Adý: Görev Yöneticisi (Task Management System)
+Proje Konusu: Kullanýcýnýn günlük, haftalýk, aylýk olarak yapacaðý iþleri rapor ettiði küçük bir uygulamadýr. Uygulama içerisinde Swagger ve JWT ile Authentication olmalýdýr.
+
+Backend Developer:
+ASP.NET Core Web Api, MSSQL, MongoDb, frameworklerin sunduðu çözümler ve yardýmcý kütüphanelerdir.
+-------------------------------------
+Ýlk olarak senden beklenen; yapýlacak iþlerin tarih bazlý eklenmesi, silinmesi ve yapýldý þeklinde güncellenebilmesidir. 
+Ayrýca bunlarýn günlük, haftalýk ve aylýk olarak listelenebilmesi de gerekmektedir. 
+Özetlemek gerekirse; rapor içinde ayrý bir endpoint olacaktýr. Ýkinci soruna gelirsek; projenin Aspnet Core ile yapýlmasý gerekmektedir. 
+Db olarak ise istediðini seçmekte özgürsün. Ek olarak, proje teslim tarihin bu bilgilendirmenin yapýldýðý tarih baz alýnarak baþlayacaktýr.
+
+
+
+Not : "TMS.Business > Nuget Package Manager > Installed" içerisindeki yüklü kütüphaneleri, dikkatinize arz ederim.
